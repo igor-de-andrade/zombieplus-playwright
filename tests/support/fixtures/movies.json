@@ -1,0 +1,92 @@
+{
+    "create": {
+       "title": "O Exorcista",
+       "overview": "Uma jovem é possuída por uma entidade maligna, e dois padres tentam exorcizá-la.",
+       "company": "Warner Bros.",
+       "release_year": "1973",
+       "featured": false,
+       "cover": "/path/to/o_exorcista.jpg"
+    },
+
+    "filme_2": {
+       "title": "O Iluminado",
+       "overview": "Um homem enlouquece lentamente enquanto cuida de um hotel isolado no inverno com sua família.",
+       "company": "Warner Bros.",
+       "release_year": "1980",
+       "featured": false,
+       "cover": "/path/to/o_iluminado.jpg"
+    },
+
+    "filme_3": {
+       "title": "A Hora do Pesadelo",
+       "overview": "Um assassino sobrenatural invade os sonhos de adolescentes e os mata enquanto dormem.",
+       "company": "New Line Cinema",
+       "release_year": "1984",
+       "featured": false,
+       "cover": "/path/to/a_hora_do_pesadelo.jpg"
+    },
+
+    "filme_4": {
+       "title": "Halloween: A Noite do Terror",
+       "overview": "Um psicopata mascarado persegue e mata adolescentes na noite de Halloween.",
+       "company": "Compass International Pictures",
+       "release_year": "1978",
+       "featured": false,
+       "cover": "/path/to/halloween.jpg"
+    },
+
+    "filme_5": {
+       "title": "O Massacre da Serra Elétrica",
+       "overview": "Um grupo de amigos é perseguido e atacado por uma família de canibais no Texas.",
+       "company": "Bryanston Pictures",
+       "release_year": "1974",
+       "featured": false,
+       "cover": "/path/to/o_massacre_da_serra_eletrica.jpg"
+    },
+
+    "filme_6": {
+       "title": "It: A Coisa",
+       "overview": "Um grupo de amigos enfrenta um ser sobrenatural que assume a forma de um palhaço para se alimentar de crianças.",
+       "company": "Warner Bros.",
+       "release_year": "2017",
+       "featured": false,
+       "cover": "/path/to/it_a_coisa.jpg"
+    },
+
+    "filme_7": {
+       "title": "Hereditário",
+       "overview": "Uma família começa a desvendar segredos sombrios após a morte da matriarca, enquanto forças sobrenaturais começam a se manifestar.",
+       "company": "A24",
+       "release_year": "2018",
+       "featured": false,
+       "cover": "/path/to/hereditario.jpg"
+    },
+
+    "filme_8": {
+       "title": "Psicose",
+       "overview": "Uma secretária em fuga se hospeda em um motel de beira de estrada, onde o dono tem segredos obscuros.",
+       "company": "Paramount Pictures",
+       "release_year": "1960",
+       "featured": false,
+       "cover": "/path/to/psicose.jpg"
+    },
+
+    "filme_9": {
+       "title": "Invocação do Mal",
+       "overview": "Investigadores paranormais tentam ajudar uma família aterrorizada por uma presença sinistra em sua fazenda.",
+       "company": "Warner Bros.",
+       "release_year": "2013",
+       "featured": false,
+       "cover": "/path/to/invocacao_do_mal.jpg"
+    },
+
+    "filme_10": {
+       "title": "Corra!",
+       "overview": "Um jovem negro descobre segredos perturbadores ao visitar a família de sua namorada branca.",
+       "company": "Universal Pictures",
+       "release_year": "2017",
+       "featured": false,
+       "cover": "/path/to/corra.jpg"
+    }
+ }
+ 
