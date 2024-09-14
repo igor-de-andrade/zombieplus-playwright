@@ -1,14 +1,14 @@
 import { test, expect } from '@playwright/test';
 import { faker } from '@faker-js/faker'
 
-import { LandingPage } from '../pages/LandingPage';
-import { Toast } from '../pages/Components';
+import { Leads } from '../actions/Leads';
+import { Toast } from '../actions/Components';
 
-let landingPage: LandingPage
+let leads: Leads
 let toast: Toast
 
 test.beforeEach(async ({ page }) => {
-  landingPage = new LandingPage(page)
+  leads = new Leads(page)
   toast = new Toast(page)
 })
 
@@ -16,9 +16,9 @@ test('Deve cadastrar um novo lead com sucesso', async ({ page }) => {
   const leadName = faker.person.fullName()
   const leadEmail = faker.internet.email()
 
-  await landingPage.visit()
-  await landingPage.openLeadModal()
-  await landingPage.submitLeadForm(leadName, leadEmail)
+  await leads.visit()
+  await leads.openLeadModal()
+  await leads.submitLeadForm(leadName, leadEmail)
 
   const message = 'Agradecemos por compartilhar seus dados conosco. Em breve, nossa equipe entrará em contato!'
   await toast.containText(message)
@@ -37,42 +37,42 @@ test('Não deve cadastrar quando o e-mail já existe', async ({ page, request })
 
   expect(newLead.ok()).toBeTruthy()
 
-  await landingPage.visit()
-  await landingPage.openLeadModal()
-  await landingPage.submitLeadForm(leadName, leadEmail)
+  await leads.visit()
+  await leads.openLeadModal()
+  await leads.submitLeadForm(leadName, leadEmail)
 
   const message = 'O endereço de e-mail fornecido já está registrado em nossa fila de espera.'
   await toast.containText(message)
 })
 
 test('Não deve cadastrar quando o nome não é preenchido', async ({ page }) => {
-  await landingPage.visit()
-  await landingPage.openLeadModal()
-  await landingPage.submitLeadForm('', 'user@email.com')
+  await leads.visit()
+  await leads.openLeadModal()
+  await leads.submitLeadForm('', 'user@email.com')
 
-  await landingPage.alertHaveText('Campo obrigatório')
+  await leads.alertHaveText('Campo obrigatório')
 })
 
 test('Não deve cadastrar quando o email não é preenchido', async ({ page }) => {
-  await landingPage.visit()
-  await landingPage.openLeadModal()
-  await landingPage.submitLeadForm('User', '')
+  await leads.visit()
+  await leads.openLeadModal()
+  await leads.submitLeadForm('User', '')
 
-  await landingPage.alertHaveText('Campo obrigatório')
+  await leads.alertHaveText('Campo obrigatório')
 })
 
 test('Não deve cadastrar quando o email é inválido', async ({ page }) => {
-  await landingPage.visit()
-  await landingPage.openLeadModal()
-  await landingPage.submitLeadForm('User', 'user@emailcom')
+  await leads.visit()
+  await leads.openLeadModal()
+  await leads.submitLeadForm('User', 'user@emailcom')
 
-  await landingPage.alertHaveText('Email incorreto')
+  await leads.alertHaveText('Email incorreto')
 })
 
 test('Não deve cadastrar com nenhum campo preenchido', async ({ page }) => {
-  await landingPage.visit()
-  await landingPage.openLeadModal()
-  await landingPage.submitLeadForm('', '')
+  await leads.visit()
+  await leads.openLeadModal()
+  await leads.submitLeadForm('', '')
 
-  await landingPage.alertHaveText(['Campo obrigatório', 'Campo obrigatório'])
+  await leads.alertHaveText(['Campo obrigatório', 'Campo obrigatório'])
 })

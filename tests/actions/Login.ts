@@ -1,6 +1,6 @@
 import { Page, expect } from '@playwright/test';
 
-export class LoginPage {
+export class Login {
     readonly page: Page
 
     constructor(page: Page) {
@@ -18,6 +18,13 @@ export class LoginPage {
         await this.page.getByPlaceholder("E-mail").fill(email)
         await this.page.getByPlaceholder("Senha").fill(password)
         await this.page.getByText('Entrar').click()
+    }
+
+    async isLoggedIn() {
+        await this.page.waitForLoadState('networkidle')
+        //await expect(this.page).toHaveURL('http://localhost:3000/admin/movies')
+        await expect(this.page).toHaveURL(/.*admin/)
+        await expect(this.page.locator('a[href="/logout"]')).toBeVisible()
     }
 
     async alertHaveText(message) {

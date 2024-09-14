@@ -1,21 +1,22 @@
 import { Page, expect } from '@playwright/test';
 
-export class MoviesPage {
+export class Movies {
     readonly page: Page
 
     constructor(page: Page) {
         this.page = page
     }
 
-    async isLoggedIn() {
-        await this.page.waitForLoadState('networkidle')
-        //await expect(this.page).toHaveURL('http://localhost:3000/admin/movies')
-        await expect(this.page).toHaveURL(/.*admin/)
-        await expect(this.page.locator('a[href="/logout"]')).toBeVisible()
+    async goForm() {
+        await this.page.locator('a[href$="/register"]').click()
+    }
+
+    async submit() {
+        await this.page.getByRole('button', {name: 'Cadastrar'}).click()
     }
 
     async create(movie) {
-        await this.page.locator('a[href$="/register"]').click()
+        await this.goForm()
         await this.page.getByLabel('Titulo do filme').fill(movie.title)
         await this.page.getByLabel('Sinopse').fill(movie.overview)
 
@@ -31,7 +32,11 @@ export class MoviesPage {
             .filter({hasText: movie.release_year})
             .click()  
 
-        await this.page.getByRole('button', {name: 'Cadastrar'}).click()
+        await this.submit()
+    }
+
+    async alertHaveText(message) {
+        await expect(this.page.locator('.alert')).toHaveText(message)
     }
 
 }
