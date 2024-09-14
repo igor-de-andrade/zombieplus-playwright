@@ -20,11 +20,9 @@ export class Login {
         await this.page.getByText('Entrar').click()
     }
 
-    async isLoggedIn() {
-        await this.page.waitForLoadState('networkidle')
-        //await expect(this.page).toHaveURL('http://localhost:3000/admin/movies')
-        await expect(this.page).toHaveURL(/.*admin/)
-        await expect(this.page.locator('a[href="/logout"]')).toBeVisible()
+    async isLoggedIn(username: string) {
+        const loggedUser = this.page.locator('.logged-user')
+        await expect(loggedUser).toHaveText(`Olá, ${username}`)
     }
 
     async alertHaveText(message) {

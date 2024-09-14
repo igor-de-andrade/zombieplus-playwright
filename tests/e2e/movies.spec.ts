@@ -5,7 +5,7 @@ import { executeSQL } from '../support/database.js';
 test.beforeEach(async ({ play }) => {
     await play.login.visit()
     await play.login.submitLogin('admin@zombieplus.com', 'pwd123')
-    await play.login.isLoggedIn()
+    await play.login.isLoggedIn('Admin')
 })
 
 test('Deve cadastrar um novo filme', async ({ play }) => {
