@@ -7,6 +7,7 @@ Repositório do projeto de testes automatizados do sistema Zombie Plus, constru�
 ## 💻 Tecnologias
 - Node.js
 - Playwright
+- Typescript
 - Javascript
 - Faker
 - PostgreSQL
@@ -29,4 +30,4 @@ npx playwright show-report
 ```
 
 <hr>
-Curso disponível em https://qaxperience.com
+Curso disponível em https://www.udemy.com/course/playwright-zombie/
