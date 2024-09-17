@@ -35,7 +35,6 @@ export class Api {
 
         const body = JSON.parse(await response.text())
 
-        console.log(body.data[0].id)
         return body.data[0].id
     }
 
