@@ -1,4 +1,4 @@
-import { test } from '../support/index.js';
+import { test, expect } from '../support/index.js';
 import data from '../support/fixtures/movies.json'
 import { executeSQL } from '../support/database.js';
 
@@ -22,9 +22,20 @@ test('Não deve cadastrar quando os campos obrigatórios não estão preenchidos
     await play.movies.submit()
 
     await play.movies.alertHaveText([
-        'Por favor, informe o título.', 
-        'Por favor, informe a sinopse.', 
-        'Por favor, informe a empresa distribuidora.', 
+        'Por favor, informe o título.',
+        'Por favor, informe a sinopse.',
+        'Por favor, informe a empresa distribuidora.',
         'Por favor, informe o ano de lançamento.'
     ])
+})
+
+test('Não deve cadastrar quando o título é duplicado', async ({ play, requestPlus }) => {
+    const movie = data.duplicate
+
+    await executeSQL(`DELETE FROM movies WHERE title = '${movie.title}';`)
+
+    await requestPlus.api.postMovie(movie)
+
+    await play.movies.create(movie)
+    await play.toast.containText('Este conteúdo já encontra-se cadastrado no catálogo')
 })

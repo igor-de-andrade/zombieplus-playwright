@@ -1,21 +1,22 @@
 {
-    "create": {
-       "title": "O Exorcista",
-       "overview": "Uma jovem é possuída por uma entidade maligna, e dois padres tentam exorcizá-la.",
-       "company": "Warner Bros.",
-       "release_year": "1973",
-       "featured": false,
-       "cover": "/path/to/o_exorcista.jpg"
-    },
 
-    "filme_2": {
-       "title": "O Iluminado",
-       "overview": "Um homem enlouquece lentamente enquanto cuida de um hotel isolado no inverno com sua família.",
-       "company": "Warner Bros.",
-       "release_year": "1980",
-       "featured": false,
-       "cover": "/path/to/o_iluminado.jpg"
-    },
+    "create": {
+      "title": "O Exorcista",
+      "overview": "Uma jovem é possuída por uma entidade maligna, e dois padres tentam exorcizá-la.",
+      "company": "Warner Bros. Pictures",
+      "release_year": "1973",
+      "featured": false,
+      "cover": "/covers/movies/o_exorcista.jpg"
+   },
+
+   "duplicate": {
+      "title": "O Iluminado",
+      "overview": "Um homem enlouquece lentamente enquanto cuida de um hotel isolado no inverno com sua família.",
+      "company": "Warner Bros. Pictures",
+      "release_year": "1980",
+      "featured": false,
+      "cover": "/covers/movies/o_iluminado.jpg"
+   },
 
     "filme_3": {
        "title": "A Hora do Pesadelo",
