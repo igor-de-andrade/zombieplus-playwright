@@ -14,7 +14,7 @@ test('Deve cadastrar um novo filme', async ({ play }) => {
     await executeSQL(`DELETE FROM movies WHERE title = '${movie.title}';`)
 
     await play.movies.create(movie)
-    await play.toast.containText('Cadastro realizado com sucesso!')
+    await play.popup.haveText(`O filme '${movie.title}' foi adicionado ao catálogo.`)
 })
 
 test('Não deve cadastrar quando os campos obrigatórios não estão preenchidos', async ({ play }) => {
@@ -22,10 +22,10 @@ test('Não deve cadastrar quando os campos obrigatórios não estão preenchidos
     await play.movies.submit()
 
     await play.movies.alertHaveText([
-        'Por favor, informe o título.',
-        'Por favor, informe a sinopse.',
-        'Por favor, informe a empresa distribuidora.',
-        'Por favor, informe o ano de lançamento.'
+        'Campo obrigatório',
+        'Campo obrigatório',
+        'Campo obrigatório',
+        'Campo obrigatório'
     ])
 })
 
@@ -37,5 +37,5 @@ test('Não deve cadastrar quando o título é duplicado', async ({ play, request
     await requestPlus.api.postMovie(movie)
 
     await play.movies.create(movie)
-    await play.toast.containText('Este conteúdo já encontra-se cadastrado no catálogo')
+    await play.popup.haveText(`O título '${movie.title}' já consta em nosso catálogo. Por favor, verifique se há necessidade de atualizações ou correções para este item.`)
 })

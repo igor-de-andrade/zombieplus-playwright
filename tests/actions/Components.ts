@@ -1,6 +1,6 @@
 import { Page, expect } from '@playwright/test';
 
-export class Toast {
+export class Popup {
 
     readonly page: Page
 
@@ -8,9 +8,10 @@ export class Toast {
         this.page = page
     }
 
-    async containText(message: string) {
-        await expect(this.page.locator('.toast')).toContainText(message)
-        await expect(this.page.locator('.toast')).toBeHidden({timeout:5000})
+    async haveText(message: string) {
+        const element = this.page.locator('.swal2-html-container')
+
+        await expect(element).toHaveText(message)
     }
 
 }
